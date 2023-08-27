@@ -13,7 +13,6 @@ import { PrismaModule } from 'src/prisma/prisma.module';
     forwardRef(() => UserModule),
 
     PrismaModule,
-    UserModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],

@@ -1,0 +1,52 @@
+.loader {
+  width: 120px;
+  height: 120px;
+  padding: 20px;
+  display: grid;
+  color: #766df4;
+}
+.loader,
+.loader:before,
+.loader:after {
+  --c: linear-gradient(currentColor 0 0);
+  background: var(--c), var(--c), var(--c), var(--c);
+  background-repeat: no-repeat;
+  animation: l8-1 1.5s infinite cubic-bezier(0, 0, 1, 1), l8-2 1.5s infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  animation-timing-function: cubic-bezier(0, 0.2, 1, 1), linear;
+}
+
+.loader:after {
+  margin: 20px;
+  animation-timing-function: cubic-bezier(0, 0.4, 1, 1), linear;
+}
+
+@keyframes l8-1 {
+  0%,
+  10% {
+    background-size: 0 8px, 8px 0;
+  }
+  40%,
+  60% {
+    background-size: 100% 8px, 8px 100%;
+  }
+  90%,
+  100% {
+    background-size: 0 8px, 8px 0;
+  }
+}
+
+@keyframes l8-2 {
+  0%,
+  49.9% {
+    background-position: 0 0, 0 0, 100% 100%, 100% 100%;
+  }
+  50%,
+  100% {
+    background-position: 100% 0, 0 100%, 0 100%, 100% 0;
+  }
+}

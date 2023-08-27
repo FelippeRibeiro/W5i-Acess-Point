@@ -22,8 +22,9 @@ export class AuthService {
   ) {}
 
   async cretateToken(user: users) {
+    delete user.password;
     return {
-      acesss_token: this.JwtService.sign(
+      acess_token: this.JwtService.sign(
         {
           sub: user.id,
           name: user.name,
@@ -31,6 +32,7 @@ export class AuthService {
         },
         { expiresIn: '7 days', issuer: 'Login' },
       ),
+      user: user,
     };
   }
 

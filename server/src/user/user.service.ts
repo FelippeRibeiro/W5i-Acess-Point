@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { Prisma, acess, users } from '@prisma/client';
 
 @Injectable()
 export class UserService {
@@ -21,10 +22,14 @@ export class UserService {
   }
 
   async findById(id: number) {
-    return this.prisma.users.findUnique({ where: { id } });
+    return this.prisma.users.findUnique({
+      where: { id },
+    });
   }
 
   async findByEmail(email: string) {
-    return this.prisma.users.findUnique({ where: { email } });
+    return this.prisma.users.findUnique({
+      where: { email },
+    });
   }
 }

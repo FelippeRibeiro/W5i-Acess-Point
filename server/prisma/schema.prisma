@@ -22,7 +22,7 @@ model acess {
   id      Int       @id @default(autoincrement())
   date    DateTime  @default(now())
   entry   DateTime  @default(now())
-  exit    DateTime? @default(now())
+  exit    DateTime?
   users   users?    @relation(fields: [usersId], references: [id])
-  usersId Int?
+  usersId Int
 }
