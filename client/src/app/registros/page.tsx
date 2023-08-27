@@ -13,7 +13,7 @@ export default function page() {
         <Stack spacing={4} className="w-[30%] max-lg:w-[70%]">
           {hits?.reverse().map((item) => {
             return (
-              <Card className="p-4 border-b bg-slate-400">
+              <Card className="p-4 border-b bg-slate-400" key={item.entrada}>
                 <CardHeader>
                   <h1 className="text-center font-medium">{item.date}</h1>
                 </CardHeader>
